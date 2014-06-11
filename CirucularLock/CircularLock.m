@@ -90,10 +90,16 @@
 - (void)finishAnimation {
     self.locked = !self.locked;
 
-    if (self.locked)
-        self.didLocked ();
-    else self.didUnlocked ();
-    
+    if (self.locked) {
+        if (self.didLocked) {
+            self.didLocked ();
+        }
+    }
+    else {
+        if (self.didUnlocked) {
+            self.didUnlocked ();
+        }
+    }
     [self cancelAnimation];
 }
 
