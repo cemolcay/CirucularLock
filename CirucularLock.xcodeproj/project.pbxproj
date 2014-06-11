@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B23426E719485CED00A0D11C /* locked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B23426E519485CED00A0D11C /* locked@2x.png */; };
+		B23426E819485CED00A0D11C /* unlocked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B23426E619485CED00A0D11C /* unlocked@2x.png */; };
+		B23426EA1948670C00A0D11C /* lockedTransparent@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B23426E91948670C00A0D11C /* lockedTransparent@2x.png */; };
 		B23E0ABC19475F3F00A924BB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B23E0ABB19475F3F00A924BB /* Foundation.framework */; };
 		B23E0ABE19475F3F00A924BB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B23E0ABD19475F3F00A924BB /* CoreGraphics.framework */; };
 		B23E0AC019475F3F00A924BB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B23E0ABF19475F3F00A924BB /* UIKit.framework */; };
@@ -19,6 +22,8 @@
 		B23E0AD719475F3F00A924BB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B23E0ABF19475F3F00A924BB /* UIKit.framework */; };
 		B23E0ADF19475F3F00A924BB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B23E0ADD19475F3F00A924BB /* InfoPlist.strings */; };
 		B23E0AE119475F3F00A924BB /* CirucularLockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B23E0AE019475F3F00A924BB /* CirucularLockTests.m */; };
+		B23E0AEC1947650800A924BB /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B23E0AEB1947650800A924BB /* TestViewController.m */; };
+		B23E0AEF1947653B00A924BB /* CircularLock.m in Sources */ = {isa = PBXBuildFile; fileRef = B23E0AEE1947653B00A924BB /* CircularLock.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B23426E519485CED00A0D11C /* locked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "locked@2x.png"; sourceTree = "<group>"; };
+		B23426E619485CED00A0D11C /* unlocked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "unlocked@2x.png"; sourceTree = "<group>"; };
+		B23426E91948670C00A0D11C /* lockedTransparent@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lockedTransparent@2x.png"; sourceTree = "<group>"; };
 		B23E0AB819475F3F00A924BB /* CirucularLock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CirucularLock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B23E0ABB19475F3F00A924BB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B23E0ABD19475F3F00A924BB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -48,6 +56,10 @@
 		B23E0ADC19475F3F00A924BB /* CirucularLockTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CirucularLockTests-Info.plist"; sourceTree = "<group>"; };
 		B23E0ADE19475F3F00A924BB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B23E0AE019475F3F00A924BB /* CirucularLockTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CirucularLockTests.m; sourceTree = "<group>"; };
+		B23E0AEA1947650800A924BB /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
+		B23E0AEB1947650800A924BB /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
+		B23E0AED1947653B00A924BB /* CircularLock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircularLock.h; sourceTree = "<group>"; };
+		B23E0AEE1947653B00A924BB /* CircularLock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircularLock.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +86,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B23426E419485CED00A0D11C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B23426E91948670C00A0D11C /* lockedTransparent@2x.png */,
+				B23426E519485CED00A0D11C /* locked@2x.png */,
+				B23426E619485CED00A0D11C /* unlocked@2x.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		B23E0AAF19475F3F00A924BB = {
 			isa = PBXGroup;
 			children = (
@@ -107,10 +129,15 @@
 		B23E0AC119475F3F00A924BB /* CirucularLock */ = {
 			isa = PBXGroup;
 			children = (
+				B23426E419485CED00A0D11C /* Resources */,
 				B23E0ACA19475F3F00A924BB /* AppDelegate.h */,
 				B23E0ACB19475F3F00A924BB /* AppDelegate.m */,
 				B23E0ACD19475F3F00A924BB /* Images.xcassets */,
 				B23E0AC219475F3F00A924BB /* Supporting Files */,
+				B23E0AEA1947650800A924BB /* TestViewController.h */,
+				B23E0AEB1947650800A924BB /* TestViewController.m */,
+				B23E0AED1947653B00A924BB /* CircularLock.h */,
+				B23E0AEE1947653B00A924BB /* CircularLock.m */,
 			);
 			path = CirucularLock;
 			sourceTree = "<group>";
@@ -219,7 +246,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B23426EA1948670C00A0D11C /* lockedTransparent@2x.png in Resources */,
 				B23E0AC619475F3F00A924BB /* InfoPlist.strings in Resources */,
+				B23426E819485CED00A0D11C /* unlocked@2x.png in Resources */,
+				B23426E719485CED00A0D11C /* locked@2x.png in Resources */,
 				B23E0ACE19475F3F00A924BB /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -239,8 +269,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B23E0AEC1947650800A924BB /* TestViewController.m in Sources */,
 				B23E0ACC19475F3F00A924BB /* AppDelegate.m in Sources */,
 				B23E0AC819475F3F00A924BB /* main.m in Sources */,
+				B23E0AEF1947653B00A924BB /* CircularLock.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,6 +471,7 @@
 				B23E0AE619475F3F00A924BB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B23E0AE719475F3F00A924BB /* Build configuration list for PBXNativeTarget "CirucularLockTests" */ = {
 			isa = XCConfigurationList;
@@ -447,6 +480,7 @@
 				B23E0AE919475F3F00A924BB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
