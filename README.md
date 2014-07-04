@@ -13,7 +13,7 @@ Usage
 
 -Import the CircularLock.h/.m to your project file
 
--Them implement init method
+-Then implement init method
 
     CircularLock *c = [[CircularLock alloc] initWithCenter:self.view.center                               
                                                     radius:50
