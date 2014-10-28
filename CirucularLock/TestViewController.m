@@ -19,7 +19,7 @@
                                                     radius:50
                                                   duration:1.5
                                                strokeWidth:15
-                                                 baseColor:[UIColor greenColor]
+                                                 ringColor:[UIColor greenColor]
                                                strokeColor:[UIColor whiteColor]
                                                lockedImage:[UIImage imageNamed:@"lockedTransparent.png"]
                                              unlockedImage:[UIImage imageNamed:@"unlocked.png"]

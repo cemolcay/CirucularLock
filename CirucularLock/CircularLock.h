@@ -13,25 +13,25 @@ typedef void(^didUnlockedBlock)(void);
 
 @interface CircularLock : UIView 
 
-@property UIImageView *imageView;
-@property (assign, getter = isLocked) BOOL locked;
+@property (nonatomic, strong) UIImageView *imageView;
+@property (nonatomic, assign, getter = isLocked) BOOL locked;
 
-@property CAShapeLayer *strokeLayer;
-@property CAShapeLayer *circleLayer;
+@property (nonatomic, strong) CAShapeLayer *strokeLayer;
+@property (nonatomic, strong) CAShapeLayer *circleLayer;
 
-@property UIImage *lockedImage;
-@property UIImage *unlockedImage;
+@property (nonatomic, strong) UIImage *lockedImage;
+@property (nonatomic, strong) UIImage *unlockedImage;
 
-@property UIColor *circleColor;
-@property UIColor *strokeColor;
+@property (nonatomic, strong) UIColor *ringColor;
+@property (nonatomic, strong) UIColor *strokeColor;
 
-@property CGFloat radius;
-@property CGFloat duration;
-@property CGFloat strokeWidth;
+@property (nonatomic, assign) CGFloat radius;
+@property (nonatomic, assign) CGFloat duration;
+@property (nonatomic, assign) CGFloat strokeWidth;
 
 @property (copy) didLockedBlock didLocked;
 @property (copy) didUnlockedBlock didUnlocked;
 
-- (instancetype)initWithCenter:(CGPoint)center radius:(CGFloat)r duration:(CGFloat)d strokeWidth:(CGFloat)width baseColor:(UIColor *)baseColor strokeColor:(UIColor *)strokeColor lockedImage:(UIImage *)lockedImage unlockedImage:(UIImage *)unlockedImage isLocked:(BOOL)locked didlockedCallback:(didLockedBlock)didLocked didUnlockedCallback:(didUnlockedBlock)didUnlocked;
+- (instancetype)initWithCenter:(CGPoint)center radius:(CGFloat)r duration:(CGFloat)d strokeWidth:(CGFloat)width ringColor:(UIColor *)ringColor strokeColor:(UIColor *)strokeColor lockedImage:(UIImage *)lockedImage unlockedImage:(UIImage *)unlockedImage isLocked:(BOOL)locked didlockedCallback:(didLockedBlock)didLocked didUnlockedCallback:(didUnlockedBlock)didUnlocked;
 
 @end

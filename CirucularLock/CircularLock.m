@@ -10,13 +10,16 @@
 
 @implementation CircularLock
 
+
+#pragma mark Lifecycle
+
 - (instancetype)initWithFrame:(CGRect)frame {
     if ((self = [super initWithFrame:frame])) {
         self.radius = frame.size.height/2;
         [self.layer setCornerRadius:self.radius];
         
         self.locked = NO;
-        self.circleColor = [UIColor greenColor];
+        self.ringColor = [UIColor greenColor];
         self.strokeColor = [UIColor whiteColor];
         
         self.lockedImage = [UIImage imageNamed:@"locked.png"];
@@ -33,7 +36,18 @@
     return self;
 }
 
-- (instancetype)initWithCenter:(CGPoint)center radius:(CGFloat)r duration:(CGFloat)d strokeWidth:(CGFloat)width baseColor:(UIColor *)baseColor strokeColor:(UIColor *)strokeColor lockedImage:(UIImage *)lockedImage unlockedImage:(UIImage *)unlockedImage isLocked:(BOOL)locked didlockedCallback:(didLockedBlock)didLocked didUnlockedCallback:(didUnlockedBlock)didUnlocked {
+- (instancetype)initWithCenter:(CGPoint)center
+                        radius:(CGFloat)r
+                      duration:(CGFloat)d
+                   strokeWidth:(CGFloat)width
+                     ringColor:(UIColor *)ringColor
+                   strokeColor:(UIColor *)strokeColor
+                   lockedImage:(UIImage *)lockedImage
+                 unlockedImage:(UIImage *)unlockedImage
+                      isLocked:(BOOL)locked
+             didlockedCallback:(didLockedBlock)didLocked
+           didUnlockedCallback:(didUnlockedBlock)didUnlocked {
+    
     if ((self = [super initWithFrame:CGRectMake(center.x-r, center.y-r, r*2, r*2)])) {
         [self.layer setCornerRadius:r];
         self.locked = locked;
@@ -42,7 +56,7 @@
         self.duration = d;
         self.strokeWidth = width;
 
-        self.circleColor = baseColor;
+        self.ringColor = ringColor;
         self.strokeColor = strokeColor;
         self.lockedImage = lockedImage;
         self.unlockedImage = unlockedImage;
@@ -59,6 +73,9 @@
     return self;
 }
 
+
+#pragma mark Interaction
+
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     if (self.locked) {
         [self unlockAnimation];
@@ -72,36 +89,8 @@
     [self cancelAnimation];
 }
 
-- (void)cancelAnimation {
-    [self.circleLayer removeFromSuperlayer];
-    [self.strokeLayer removeFromSuperlayer];
-    
-    [UIView animateWithDuration:.3 animations:^{
-        [self.imageView setAlpha:1];
-    }];
-    
-    if (self.locked) {
-        [self.imageView setImage:self.lockedImage];
-    } else {
-        [self.imageView setImage:self.unlockedImage];
-    }
-}
 
-- (void)finishAnimation {
-    self.locked = !self.locked;
-
-    if (self.locked) {
-        if (self.didLocked) {
-            self.didLocked ();
-        }
-    }
-    else {
-        if (self.didUnlocked) {
-            self.didUnlocked ();
-        }
-    }
-    [self cancelAnimation];
-}
+#pragma mark AnimationLayers
 
 - (void)initLayers {
     [UIView animateWithDuration:.2 animations:^{
@@ -111,7 +100,7 @@
     self.circleLayer = [CAShapeLayer layer];
     [self.circleLayer setPath:[[UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, 2*self.radius, 2*self.radius) cornerRadius:self.radius] CGPath]];
     [self.circleLayer setFillColor:[[UIColor clearColor] CGColor]];
-    [self.circleLayer setStrokeColor:[self.circleColor CGColor]];
+    [self.circleLayer setStrokeColor:[self.ringColor CGColor]];
     [self.circleLayer setLineWidth:1];
     [self.layer addSublayer:self.circleLayer];
     
@@ -147,6 +136,41 @@
     [strokeAnimation setToValue:@1];
     [self.strokeLayer addAnimation:strokeAnimation forKey:@"unlockAnimation"];
 }
+
+
+#pragma mark AnimationStates
+
+- (void)cancelAnimation {
+    [self.circleLayer removeFromSuperlayer];
+    [self.strokeLayer removeFromSuperlayer];
+    
+    [UIView animateWithDuration:.3 animations:^{
+        [self.imageView setAlpha:1];
+    }];
+    
+    if (self.locked) {
+        [self.imageView setImage:self.lockedImage];
+    } else {
+        [self.imageView setImage:self.unlockedImage];
+    }
+}
+
+- (void)finishAnimation {
+    self.locked = !self.locked;
+
+    if (self.locked) {
+        if (self.didLocked) {
+            self.didLocked ();
+        }
+    }
+    else {
+        if (self.didUnlocked) {
+            self.didUnlocked ();
+        }
+    }
+    [self cancelAnimation];
+}
+
 
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
     if (flag)
