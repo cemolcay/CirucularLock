@@ -2,6 +2,8 @@ CirucularLock
 =============
 
 fully custumisable lock control with block based callbacks.
+can be used as toggle or switch.
+inspired by the control used in nike+ running app.
 
 Demo
 ============
@@ -19,7 +21,7 @@ Usage
                                                     radius:50
                                                   duration:1.5
                                                strokeWidth:15
-                                                 baseColor:[UIColor greenColor]
+                                                 ringColor:[UIColor greenColor]
                                                strokeColor:[UIColor whiteColor]
                                                lockedImage:[UIImage imageNamed:@"lockedTransparent.png"]
                                              unlockedImage:[UIImage imageNamed:@"unlocked.png"]
